@@ -13,7 +13,7 @@ export function getData() {
     return {
         apiMethod: GET_LINE,
         type: GET_LINE,
-        successAction:[GET_LINE_SUCCESS,GET_SUB_LINE_SUCCESS],
+        successAction:[GET_LINE_SUCCESS],
         errorAction:GET_LINE_FAIL,
         requestMethod: 'post',
         query:{firsParam:"firsParam",secondParam:"secondParam"},

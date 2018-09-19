@@ -10,7 +10,7 @@ import routes from './router';
 import configureStore from './zConfigureApp/configureStore';
 
 import SubScreen from './views/SubScreen/SubScreen';
-import SecondScreen from './views/SecondScreen/SecondScreen';
+import SecondScreen from './views/Modal/Modal';
 
 const store = configureStore();
 // const history = syncHistoryWithStore(browserHistory, store);

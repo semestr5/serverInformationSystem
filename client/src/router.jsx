@@ -1,7 +1,7 @@
 import React from 'react';
 import {Switch} from 'react-router-dom';
 import SubScreen from './views/SubScreen/SubScreen';
-import SecondScreen from './views/SecondScreen/SecondScreen';
+import SecondScreen from './views/Modal/Modal';
 
 import CustomRoute from './routes/CustomRoute';
 

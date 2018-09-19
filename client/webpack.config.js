@@ -14,8 +14,14 @@ const conf = {
             test: /\.jsx?$/,
             exclude: path.resolve(__dirname, 'node_modules/'),
             use: ["babel-loader"]
-        }]
-    },
+        },
+    {
+        test: /\.css$/,
+        loader: "style-loader!css-loader!resolve-url-loader"
+    }, { test: /\.(png|woff|woff2|eot|ttf|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url'
+        }
+        ]
+     },
     resolve: {
         extensions: ['*', '.js', '.jsx']
     },

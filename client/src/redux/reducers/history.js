@@ -23,6 +23,7 @@ import {
 const initialState = {
     mystr: '2222',
     servLine:'init',
+    content:false,
 };
 
 export default (state = initialState, action) => {
@@ -38,8 +39,10 @@ export default (state = initialState, action) => {
                 mystr: "changedStr"
             };
         case GET_LINE_SUCCESS:
+            console.log("action",action)
             return {
                 ...state,
+                content:action.result.mas,
                 [action.originalAction]: SUCCESS,
             };
         case GET_LINE_FAIL:
