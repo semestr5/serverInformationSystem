@@ -24,9 +24,12 @@ class SubScreen extends React.Component {
         this.state = {
             mas: [1,2,3,4,5,6],
             showEditPopUp:false,
-            editingItem:'',
+            editingItemID:0,
+            adminMode:false,
         };
         this.toggle = this.toggle.bind(this);
+        this.switchMode = this.switchMode.bind(this);
+
         this.editFunc = this.editFunc.bind(this);
     }
     componentDidMount(){
@@ -68,7 +71,13 @@ class SubScreen extends React.Component {
     }
     toggle() {
         this.setState({
-            showEditPopUp: false
+            showEditPopUp: false,
+            editingItemID:0,
+        });
+    }
+    switchMode() {
+        this.setState({
+            adminMode: !this.state.adminMode
         });
     }
     renderItems(){
@@ -79,16 +88,20 @@ class SubScreen extends React.Component {
                 <ListGroupItem key={el.id} tag="a" href="#" action>
                     <Card className={"card"}>
                         <CardImg className={"cardImg"} width="100%"
-                                 src=""
+                                 src={`${el.imgurl}`}
                                  alt="Card image cap"/>
                         <CardBody className={"cardBody"}>
                             <CardTitle>{el.name}</CardTitle>
                             <CardSubtitle>{el.year}</CardSubtitle>
                             <CardText className={"cardText"}>{el.description}</CardText>
-                            <div className={"btnBlock"}>
-                                <Button className={"oneBtn"} color="success" onClick={()=>{this.setState({showEditPopUp:true,editingItem:el.id})}}>EDIT</Button>
-                                <Button className={"oneBtn"} color="danger">DELETE</Button>
-                            </div>
+                            {this.state.adminMode &&
+                                <div className={"btnBlock"}>
+                                    <Button className={"oneBtn"} color="success" onClick={() => {
+                                        this.setState({showEditPopUp: true, editingItemID: el.id})
+                                    }}>EDIT</Button>
+                                    <Button className={"oneBtn"} color="danger">DELETE</Button>
+                                </div>
+                            }
                         </CardBody>
                     </Card>
                 </ListGroupItem>
@@ -97,12 +110,13 @@ class SubScreen extends React.Component {
         return list;
     }
   render() {
-        // const { mas } = this.state;
-        // console.log("mas",mas)
+        const{ editingItemID }=this.state;
 
   return (<div className={"main"}>
           {this.state.showEditPopUp &&
-          <Modal edit={this.editFunc}/>
+          <Modal
+              editingItemID={editingItemID}
+              edit={this.editFunc}/>
           }
         <div className={"header"}>
           <div className={"headerContent"}>
@@ -110,10 +124,16 @@ class SubScreen extends React.Component {
                   <div className={"title"}>MY AWERSOME COLLECTION</div>
               </div>
               <div className={"headerControls"}>
-                  <Input type="email" name="email" id="exampleEmail" placeholder="enter searching year" />
-                  <Button className={"search"}  color="primary">SEARCH</Button>
-                  <Button className={"sort"} color="warning">ASC</Button>
-                  <Button className={"add"} color="success">ADD</Button>
+                  {/*<Input type="email" name="email" id="exampleEmail" placeholder="enter searching year" />*/}
+                  {/*<Button className={"search"}  color="primary">SEARCH</Button>*/}
+                  {this.state.adminMode ?
+                      <Button className={"sort"} color="warning" onClick={this.switchMode}>Switch to view</Button>
+                      :
+                      < Button className={"sort"} color="warning" onClick={this.switchMode}>Switch to Edit</Button>
+                  }
+                  <Button className={"add"} color="success" onClick={() => {
+                      this.setState({showEditPopUp: true})
+                  }}>ADD</Button>
 
               </div>
           </div>

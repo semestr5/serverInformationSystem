@@ -1,7 +1,7 @@
 import React from 'react';
 import {Switch} from 'react-router-dom';
 import SubScreen from './views/SubScreen/SubScreen';
-import SecondScreen from './views/Modal/Modal';
+import Login from './views/Login/Login';
 
 import CustomRoute from './routes/CustomRoute';
 
@@ -15,8 +15,8 @@ module.exports = (
                     />
                     <CustomRoute
                         exact
-                        path="/two"
-                        component={SecondScreen}
+                        path="/login"
+                        component={Login}
                     />
                 </Switch>
 );
