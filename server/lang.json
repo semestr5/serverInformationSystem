@@ -1,0 +1,14 @@
+{
+    "en": {
+        "name": "name",
+        "year": "year",
+        "description": "description",
+        "image": "image"
+    },
+    "ru": {
+        "name": "Имя",
+        "year": "Год",
+        "description": "Описание",
+        "image": "Изображение"
+    }
+}

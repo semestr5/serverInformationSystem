@@ -11,8 +11,6 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-    console.log("auth reduc")
-
     switch (action.type) {
         case "AUTH":
             return {

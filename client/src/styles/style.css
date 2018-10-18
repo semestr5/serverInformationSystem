@@ -58,6 +58,9 @@
     background-color: #737373;
     opacity: 0.95;
 }
+.skipBtn{
+    margin-left: 20px;
+}
 /*.main{*/
 /*width:100px;*/
 /*height: 100px;*/
@@ -90,8 +93,9 @@
     flex:3;
 }
 .cardText{
-    max-height:100px;
+    max-height:90px;
     overflow: auto;
+    word-break: break-all;
     /*overflow-x: auto;*/
     /*overflow-y: hidden;*/
 }
@@ -117,3 +121,38 @@
     height: 200px;
 }
 
+.custom{
+    background-color: blue;
+}
+
+
+.itemWrapper{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+.headerLine{
+    flex:1;
+}
+.contentBlock{
+    flex:10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.innerBlock{
+    width:80%;
+    height:90%;
+    display: flex;
+    flex-direction: column;
+}
+.imgwrap{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.loginBack{
+    margin-left: 20px !important;
+}

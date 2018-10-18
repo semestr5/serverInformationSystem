@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { hot } from 'react-hot-loader';
+import {browserHistory} from 'react-router';
+
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 // import {hashHistory, Route ,Router} from 'react-router';
 import {syncHistoryWithStore} from 'react-router-redux';
@@ -13,7 +15,7 @@ import SubScreen from './views/SubScreen/SubScreen';
 import SecondScreen from './views/Modal/Modal';
 
 const store = configureStore();
-// const history = syncHistoryWithStore(browserHistory, store);
+//  const history = syncHistoryWithStore(browserHistory, store);
 
 //
 class ScreenManager extends React.Component {

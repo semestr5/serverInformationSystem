@@ -7,6 +7,7 @@ module.exports = http.createServer((req, res) => {
     req.url = req.url.replace(/\.\./g, '')
     if (req.url === "/") {
         req.url = "/index.html"
+        console.log("++++++++++++++static")
     }
     //!!! May be you need to change next line for you architecture
     let filePath = path.join(__dirname, "../client/dist", req.url)
